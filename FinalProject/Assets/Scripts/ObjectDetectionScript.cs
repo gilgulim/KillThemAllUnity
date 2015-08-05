@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class ObjectDetectionScript : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col)
 	{
@@ -9,11 +10,12 @@ public class NewBehaviourScript : MonoBehaviour {
 		if(col.gameObject.tag == "AmmoObject")
 		{
 			Destroy(col.gameObject);
-			//GameObject.Find("AmmoAmount").guiText = "60/60";
+		
+			GameObject.Find("AmmoAmount").GetComponent<Text>().text = "60/60";
 			Debug.Log("Refill Ammo.");
 		}else if((col.gameObject.tag == "HealthObject"))
 		{
-			//GameObject.Find("HealthAmount").guiText.text = "100/100";
+			GameObject.Find("HealthAmount").GetComponent<Text>().text = "100/100";
 			Debug.Log("Refill Health.");
 		}
 		Destroy(col.gameObject);
