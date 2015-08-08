@@ -44,11 +44,11 @@ public class MenuScript : MonoBehaviour {
 
     public void Exit()
     {
-        Application.Quit();
+        //Application.Quit();
+        panel.gameObject.SetActive(false);
     } 
     #endregion
-
-
+    
     #region Networking Events
 
     void OnConnectedToServer()
@@ -83,8 +83,10 @@ public class MenuScript : MonoBehaviour {
     }
     #endregion
 
+    #region Private Methods
     private void SpawnPlayer()
     {
         Network.Instantiate(playerPrefab, new Vector3(3f, 0.05f, 3.453817f), Quaternion.identity, 0);
     }
+    #endregion
 }

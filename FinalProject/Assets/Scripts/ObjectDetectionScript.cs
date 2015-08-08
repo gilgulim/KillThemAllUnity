@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class ObjectDetectionScript : MonoBehaviour {
 
+    public Text txtScore;
+    public Text txtHealth;
+
 	void OnCollisionEnter (Collision col)
 	{
 		Debug.Log("Collision detected.");
@@ -11,11 +14,13 @@ public class ObjectDetectionScript : MonoBehaviour {
 		{
 			Destroy(col.gameObject);
 		
-			GameObject.Find("AmmoAmount").GetComponent<Text>().text = "60/60";
+			//GameObject.Find("AmmoAmount").GetComponent<Text>().text = "60/60";
+            txtScore.text = "60/60";
 			Debug.Log("Refill Ammo.");
 		}else if((col.gameObject.tag == "HealthObject"))
 		{
-			GameObject.Find("HealthAmount").GetComponent<Text>().text = "100/100";
+			//GameObject.Find("HealthAmount").GetComponent<Text>().text = "100/100";
+            txtHealth.text = "100/100";
 			Debug.Log("Refill Health.");
 		}
 		Destroy(col.gameObject);
